@@ -1,0 +1,37 @@
+
+<div class="card text-start border border-primary" style="width:600px;margin: auto;margin-top: 40px;">
+  <div class="card-header bg-primary text-white">Card Ride Registration Form</div>
+ <form class="p-3" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label ps-1">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="bg-light text-danger ps-1">Enter the name</div>
+    </div>
+    <div class="mb-3">
+      <label for="startLocation" class="form-label ps-1">Start Location</label>
+      <input type="text" class="form-control" id="startLocation" formControlName="startLocation">
+      <div *ngIf="contactForm.get('startLocation')?.invalid && contactForm.get('startLocation')?.touched" class="bg-light text-danger ps-1">Enter the start location</div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="destination" class="form-label ps-1">Destination</label>
+      <input type="text" class="form-control" id="destination" formControlName="destination">
+      <div *ngIf="contactForm.get('destination')?.invalid && contactForm.get('destination')?.touched" class="bg-light text-danger ps-1">Enter the destination</div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="car" class="form-label ps-1">Car</label>
+      <input type="text" class="form-control" id="car" formControlName="car">
+      <div *ngIf="contactForm.get('car')?.invalid && contactForm.get('car')?.touched" class="bg-light text-danger ps-1">Enter the car</div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="seatsAvailable" class="form-label ps-1">Seats Available</label>
+      <input type="number" class="form-control" id="seatsAvailable" formControlName="seatsAvailable">
+      <div *ngIf="contactForm.get('seatsAvailable')?.invalid && contactForm.get('seatsAvailable')?.touched" class="bg-light text-danger ps-1">Seats should be greater than 0 and less than 8</div>
+    </div>
+    
+    <button type="submit" class="btn m-2 btn-primary" [disabled]="contactForm.invalid">Submit</button>
+    <button class="btn m-2 btn-primary">Go Back</button>
+  </form>
+</div>
